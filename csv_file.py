@@ -8,7 +8,15 @@
 
 import csv
 
+# with open('euro_cup_matches.csv') as file: 
+#     content = csv.DictReader(file)
+#     for row in content:
+#         print(row)
+
+total_goals = 0
 with open('euro_cup_matches.csv') as file: 
     content = csv.DictReader(file)
     for row in content:
-        print(row)
+        total_goals += int(row['Score A']) + int(row['Score B'])
+print(f'Total goals in tournament so far: {total_goals}')
+
