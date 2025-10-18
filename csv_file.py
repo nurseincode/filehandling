@@ -15,8 +15,19 @@ import csv
 
 total_goals = 0
 with open('euro_cup_matches.csv') as file: 
-    content = csv.DictReader(file)
+    content = csv.DictReader(file) # Dictreader reads the headers from the file
     for row in content:
         total_goals += int(row['Score A']) + int(row['Score B'])
 print(f'Total goals in tournament so far: {total_goals}')
 
+# Writing CSV files
+with open('new_matches.csv', 'w') as file: # Reusing file 
+    writer = csv.DictWriter(file, ['Team A', 'Team B', 'Score A', 'Score B', 'Date']) # Defining column headers(field names) explicitly
+    writer.writeheader() # Writes the first row using above fieldnames as col headers
+    writer.writerow({
+        'Team A': 'Portugal',
+        'Team B': 'Spain',
+        'Score A': 1,
+        'Score B': 1,
+        'Date': '2024-04-15'
+    })
