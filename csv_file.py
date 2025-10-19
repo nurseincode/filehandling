@@ -52,7 +52,7 @@ matches = [
 ]
 with open('new_matches.csv', 'w') as file: 
     # writer = csv.DictWriter(file, ['Team A', 'Team B', 'Score A', 'Score B', 'Date']) 
-    writer = csv.DictWriter(file, matches[0].keys()) # No redundancy 
+    writer = csv.DictWriter(file, matches[0].keys()) # Replaces ['Team A', 'Team B' ...] redundancy above
     writer.writeheader() 
     writer.writerows(matches) # Calling the matches from the list
       
